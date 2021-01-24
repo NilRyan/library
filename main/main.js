@@ -1,5 +1,7 @@
 const submit = document.querySelector('.submit input');
 const content = document.querySelector('.content');
+const information = document.querySelector('.stats');
+const sideBar = document.querySelector('.side-bar');
 
 const bookAuthor = document.getElementById('book-author');
 const bookTitle = document.getElementById('book-title');
@@ -7,6 +9,8 @@ const bookPages = document.getElementById('book-pages');
 const readStatus = document.querySelector('.read-status');
 const myLibrary = (retrieveMyLibrary() === null) ? [] : retrieveMyLibrary();
 createBooks();
+update();
+
 //book constructor
 class Books {
     constructor(title, author, pages, status) {
@@ -62,8 +66,10 @@ window.addEventListener('click', e => {
             e.target.dataset.status = 'not read';
         }
     }
-
+    //update information box
+    update();
 })
+
 
 
 //create book cards contained in divs
@@ -73,7 +79,7 @@ function createBooks() {
         const bookCard = document.createElement('div');
         const paraTitle = document.createElement('h2');
         const paraAuthor = document.createElement('h3');
-        const paraPages = document.createElement('h4'); 
+        const paraPages = document.createElement('h4');
         const exit = document.createElement('img');
         const readIcon = document.createElement('img');
 
@@ -138,12 +144,34 @@ function changeReadStatus(indexOfStatus) {
     myLibrary[indexOfStatus].status === 'not read' ? myLibrary[indexOfStatus].status = 'read' : myLibrary[indexOfStatus].status = 'not read';
 }
 
-
 function addBookToLibrary() {
     const book = new Books(bookTitle.value, bookAuthor.value, bookPages.value, readStatus.dataset.status);
     myLibrary.push(book);
 
 }
+//update info box
+function update(){
+    //information counter
+       const bookCount = myLibrary.length;
+       const counter = 0;
+       const completedBooks = myLibrary.reduce((total, comparison) => {
+   
+           if (comparison.status === 'read') {
+               return total + 1;
+           } else {
+               return total + 0;
+           }
+       }, 0);
+       const percentCompleted = ((Number(completedBooks) / Number(bookCount) * 100)).toFixed(2) + '%';
+   
+   //update text info box
+   document.querySelector('.book-count').textContent = bookCount;
+   document.querySelector('.book-complete').textContent = completedBooks;
+   document.querySelector('.book-percent').textContent = (percentCompleted === 'NaN%') ? '0%' : percentCompleted;
+   
+   
+   
+   }
 
 //enable local storage of objects and arrays
 function storeMyLibrary() {
@@ -153,3 +181,15 @@ function storeMyLibrary() {
 function retrieveMyLibrary() {
     return JSON.parse(localStorage.getItem('Library'));
 };
+
+//shows and hides side-bar on mobile
+window.addEventListener('click', e => {
+    e.stopPropagation();
+    console.log(e.target.classList);
+    if (e.target.classList.contains('hamburger')){
+        showPopup();
+    }
+})
+function showPopup() {
+  sideBar.classList.toggle("show");
+}

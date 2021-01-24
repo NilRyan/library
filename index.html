@@ -5,26 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="normalize.css/normalize.css">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/mobile.css">
     <title>library</title>
 </head>
 <body>
 <div class="container">
+
+    <div class="nav-bar">
+        <h2>LIBRARY</h2>
+        <img src="icons/menu-outline.svg" alt="menu" class = "hamburger">
+    </div>
     <div class="side-bar">
         <h1 class="title">LIBRARY</h1>
         
         <div class="input-book">
             <form action="/" class="input">
                 <label for="title">Book Title:</label><br>
-                <input type="text" id="book-title" name="title" placeholder="Meditations" required><br>
+                <input type="text" id="book-title" name="title" placeholder="Meditations" maxlength="30" title = "Please input maximum of 30 characters" required><br>
                 <label for="author">Author:</label><br>
-                <input type="text" id="book-author" name="author" placeholder="Marcus Aurelius" required><br>
+                <input type="text" id="book-author" name="author" placeholder="Marcus Aurelius" title = "Please input maximum of 30 characters" maxlength="30" required><br>
                 <label for="pages">Pages:</label><br>
-                <input type="number" id="book-pages" name="pages" placeholder="414" required><br>
+                <input type="number" id="book-pages" name="pages" placeholder="414" title = "Please input a number" maxlength="30" required><br>
             </form>
             <div class="submit">
                 <img src="icons/book-outline.svg" class = "read-status" data-status = "not read">
                 <input type="submit" value = "Submit">
             </div>
+        </div>
+
+        <div class="stats">
+            <h2>Summary</h2>
+            <p>Book Count </p> <p class="book-count count">0</p>
+            <p>Completed Books</p> <p class="book-complete count">0</p>
+            <p>Percent Completed</p> <p class="book-percent count">0%</p>
+
         </div>
     </div>
     
@@ -36,7 +50,9 @@
     
     
 </div>
+
   
 <script src="main/main.js"></script>
+<scripts src="main/mobile.js"></script>
 </body>
 </html>

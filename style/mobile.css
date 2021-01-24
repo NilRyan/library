@@ -1,0 +1,157 @@
+/*mobile*/
+
+/*nav-bar hidden on desktop*/
+@media only screen and (min-width: 1024px) {
+    .nav-bar {
+        position: absolute;
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(50px, 10%) 1fr;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+
+    }
+
+    .nav-bar {
+        display: flex;
+        height: auto;
+        width: auto;
+        justify-content: space-between;
+        font-size: xx-large;
+        z-index: 2;
+    }
+
+    .nav-bar h2 {
+        margin: auto;
+    }
+
+    .nav-bar img {
+        height: 50px;
+
+
+    }
+
+    .nav-bar img:hover {
+        transform: scale(1.1);
+
+    }
+
+    .side-bar {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        visibility: hidden;
+    }
+    .title{
+        visibility: hidden;
+    }
+    /* class used to toggle visibility */
+    .show {
+        z-index: 1;
+        visibility: visible;
+        transform: scale(1.1);
+        -webkit-animation: fadeIn 2s;
+        animation: fadeIn 2s;
+        @-webkit-keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+          }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity:1 ;}
+          }
+          
+    }
+
+  
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+
+    .book {
+        margin: 15px;
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(50px, 10%) 1fr;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+
+    }
+    .title{
+        visibility: hidden;
+    }
+    .nav-bar {
+        display: flex;
+        height: auto;
+        width: auto;
+        justify-content: space-between;
+        font-size: xx-large;
+        z-index: 2;
+    }
+    
+    .nav-bar h2 {
+        margin: auto;
+    }
+
+    .nav-bar img {
+        height: 50px;
+        align-self: end;
+
+    }
+
+    .nav-bar img:hover {
+        transform: scale(1.1);
+
+    }
+
+    .side-bar {
+        position: absolute;
+        visibility: hidden;
+        height: 100vh;
+        width: 100vw;
+
+    }
+    .show {
+        z-index: 1;
+        visibility: visible;
+        transform: scale(1.1);
+        -webkit-animation: fadeIn 2s;
+        animation: fadeIn 2s;
+        @-webkit-keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+          }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity:1 ;}
+          }
+          
+    }
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .book {
+        margin: 10px;
+
+       
+    }
+}
