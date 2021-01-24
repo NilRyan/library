@@ -31,6 +31,7 @@ submit.addEventListener('click', () => {
     if (bookAuthor.value != '' && bookTitle.value != '' && bookPages.value != '' && !duplicateCheck()) {
         addBookToLibrary();
         createBooks();
+        clearInputField();
 
     }
 });
@@ -192,4 +193,9 @@ window.addEventListener('click', e => {
 })
 function showPopup() {
   sideBar.classList.toggle("show");
+}
+function clearInputField(){
+ bookAuthor.value = '';
+ bookPages.value = '';
+ bookTitle.value = '';
 }
