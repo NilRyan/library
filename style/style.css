@@ -108,7 +108,7 @@ label {
     height: 1fr;
     width: 1fr;
     border: 3px solid silver;
-    
+    position: relative;
     backdrop-filter: blur(3px);
 
 }

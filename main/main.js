@@ -19,7 +19,7 @@ class Books {
     info() {
         return this.title + ', ' + this.author + ', ' + this.pages + ', ' + this.status;
     };
-    
+
 };
 
 //add books to content div
@@ -27,7 +27,7 @@ submit.addEventListener('click', () => {
     if (bookAuthor.value != '' && bookTitle.value != '' && bookPages.value != '' && !duplicateCheck()) {
         addBookToLibrary();
         createBooks();
-        
+
     }
 });
 
@@ -41,7 +41,7 @@ window.addEventListener('click', e => {
             content.removeChild(content.firstChild);
         }
         createBooks();
-        if (myLibrary.length === 0 ) {
+        if (myLibrary.length === 0) {
             localStorage.clear();
         }
     } else if (e.target.className === 'read-icon') {
@@ -52,12 +52,12 @@ window.addEventListener('click', e => {
         };
         createBooks();
 
-    } else if (e.target.className === 'read-status'){
+    } else if (e.target.className === 'read-status') {
         e.stopPropagation();
-        if(e.target.dataset.status === 'not read'){
+        if (e.target.dataset.status === 'not read') {
             e.target.src = 'icons/book-sharp.svg';
             e.target.dataset.status = 'read';
-        } else if(e.target.dataset.status === 'read'){
+        } else if (e.target.dataset.status === 'read') {
             e.target.src = 'icons/book-outline.svg';
             e.target.dataset.status = 'not read';
         }
@@ -73,7 +73,7 @@ function createBooks() {
         const bookCard = document.createElement('div');
         const paraTitle = document.createElement('h2');
         const paraAuthor = document.createElement('h3');
-        const paraPages = document.createElement('h4');
+        const paraPages = document.createElement('h4'); 
         const exit = document.createElement('img');
         const readIcon = document.createElement('img');
 
@@ -146,10 +146,10 @@ function addBookToLibrary() {
 }
 
 //enable local storage of objects and arrays
-function storeMyLibrary () {
+function storeMyLibrary() {
     localStorage.setItem('Library', JSON.stringify(myLibrary));
 }
 
-function retrieveMyLibrary(){
-return JSON.parse(localStorage.getItem('Library'));
+function retrieveMyLibrary() {
+    return JSON.parse(localStorage.getItem('Library'));
 };
