@@ -1,5 +1,7 @@
 # Library catalog application using Vanilla Javascript and CSS 
-https://nilryan.github.io/library/
+https://nilryan.github.io/library/  
+![library desktop-demo](Demo-Desktop.gif)!  
+     ![library mobile-demo](Demo-Mobile.gif)!
 
 
 ## Learning Outcomes:
